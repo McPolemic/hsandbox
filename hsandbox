@@ -417,6 +417,7 @@ def busy_runner(hacking, version):
 
     old_stat = None
     while True:
+        time.sleep(0.1)
         try:
             current_stat = os.stat(handler.hacking.filename)
         except OSError:
@@ -428,7 +429,6 @@ def busy_runner(hacking, version):
             old_stat = current_stat
         if not os.path.exists(editor_running_path):
             sys.exit(0)
-        time.sleep(0.1)
 
 
 def describe_languages():
